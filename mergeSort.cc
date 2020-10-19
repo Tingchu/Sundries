@@ -2,8 +2,9 @@
 
 void printArray(int A[], int size)
 {
-    for (int ii=0; ii < size; ii++)
+    for (int ii=0; ii < size; ii++) {
         printf("%d ", A[ii]);
+    }
     printf("\n");
 }
 
@@ -14,11 +15,11 @@ void merge(int arr[], int left, int right)
     int rightSize = right - mid;
     int leftArr[leftSize];
     int rightArr[rightSize];
-    
+
     std::copy(arr + left, arr + left + leftSize, leftArr);
     std::copy(arr + left + leftSize, arr + left + leftSize + rightSize, rightArr);
     int ll = 0, rr = 0, arrIdx = left;
-    while(ll < leftSize && rr < rightSize){
+    while (ll < leftSize && rr < rightSize) {
         if(leftArr[ll] <= rightArr[rr]){
             arr[arrIdx] = leftArr[ll];
             ll++;
@@ -30,12 +31,12 @@ void merge(int arr[], int left, int right)
         arrIdx++;
     }
     
-    while(ll < leftSize){
+    while (ll < leftSize) {
         arr[arrIdx] = leftArr[ll];
         ll++;
         arrIdx++;
     }
-    while(rr < rightSize){
+    while (rr < rightSize) {
         arr[arrIdx] = rightArr[rr];
         rr++;
         arrIdx++;
@@ -44,7 +45,7 @@ void merge(int arr[], int left, int right)
 
 void mergeSort(int arr[], int leftIdx, int rightIdx)
 {
-    if(leftIdx >= rightIdx){
+    if (leftIdx >= rightIdx) {
         return;
     }
     int midIdx = (rightIdx - leftIdx) / 2 + leftIdx;
@@ -57,7 +58,7 @@ int main()
 {
     int arr[] = {12, 11, 13, 5, 6, 7};
     int arr_size = sizeof(arr)/sizeof(arr[0]);
- 
+
     printf("Original array:\n");
     printArray(arr, arr_size);
  
