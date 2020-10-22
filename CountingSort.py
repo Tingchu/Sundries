@@ -45,13 +45,16 @@ def stableCountingSort(array):
         result[resultIdx] = value
         counts[value - minimum] -= 1
 
-    array = result
+    # The outer array will know nothing about the rebinding in the method, so don't write it this way
+    # array = result
+    for idx, value in enumerate(result):
+        array[idx] = value
         
 
 if __name__ == '__main__':
     # Counting sort only deals with integers
     array1 = [8, 6, 3, 7, 1, 60, 3, 60, 4, -1, -10, 3]
-    array2 = array1
+    array2 = [8, 6, 3, 7, 1, 60, 3, 60, 4, -1, -10, 3]
     
     print("Original array:")
     print(array1)
